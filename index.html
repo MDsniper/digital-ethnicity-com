@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Practical AI training, websites, and AI agent setup for small businesses and individuals. Fixed scope, fixed price, no fluff.">
+<meta name="theme-color" content="#fafaf9">
+<title>Digital Ethnicity: AI Tools and Practical Websites</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#fafaf9;--surface:#fff;--ink:#18181b;--muted:#57534e;
+  --line:#e7e5e4;--accent:#b45309;--accent-ink:#fff;--accent-hover:#92400e;
+  --radius:6px;--max:72rem;
+}
+html{font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink)}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-0.02em;font-weight:600}
+h1{font-size:clamp(1.85rem,5vw,2.75rem)}
+h2{font-size:clamp(1.4rem,3.5vw,1.85rem)}
+h3{font-size:1.05rem}
+p{margin:0 0 1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover,a:focus-visible{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+
+/* Header */
+.site-header{position:sticky;top:0;background:rgba(250,250,249,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line);z-index:10}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;padding-bottom:.85rem;gap:1rem}
+.brand{font-weight:700;letter-spacing:-0.02em;color:var(--ink);font-size:1.05rem}
+.brand span{color:var(--accent)}
+.nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+.nav a{color:var(--muted);font-size:.95rem}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);text-decoration:none}
+
+/* Hero */
+.hero{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1rem}
+.hero p.lede{font-size:1.1rem;color:var(--muted);max-width:38rem;margin:1rem 0 1.75rem}
+.btn{display:inline-block;padding:.8rem 1.25rem;background:var(--accent);color:var(--accent-ink);border-radius:var(--radius);font-weight:600;border:0;cursor:pointer;font-size:1rem}
+.btn:hover,.btn:focus-visible{background:var(--accent-hover);text-decoration:none}
+.btn-secondary{display:inline-block;padding:.8rem 1.25rem;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);font-weight:600;margin-left:.5rem}
+.btn-secondary:hover,.btn-secondary:focus-visible{border-color:var(--ink);text-decoration:none}
+
+/* Section base */
+section.block{padding:3rem 0;border-bottom:1px solid var(--line)}
+.block header{margin-bottom:1.75rem}
+.block header p{color:var(--muted);margin-top:.5rem}
+
+/* Services */
+.grid{display:grid;gap:1rem}
+.services{grid-template-columns:1fr}
+@media(min-width:640px){.services{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.services{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column}
+.price{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1}
+.time{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.5rem;order:2}
+.card h3{order:3;margin-top:.5rem}
+.desc{order:4;color:var(--muted);font-size:.95rem;margin-top:.5rem;margin-bottom:0}
+.includes{order:5;margin-top:.85rem;padding:0;list-style:none;font-size:.9rem;color:var(--ink)}
+.includes li{padding:.25rem 0 .25rem 1.1rem;position:relative;border-top:1px dashed var(--line)}
+.includes li:first-child{border-top:0}
+.includes li::before{content:"+";position:absolute;left:0;color:var(--accent);font-weight:700}
+
+/* About */
+.about{display:grid;gap:2rem}
+@media(min-width:768px){.about{grid-template-columns:1fr 2fr;gap:3rem;align-items:start}}
+.about .label{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.about p{font-size:1.02rem}
+
+/* Testimonials */
+.quotes{grid-template-columns:1fr;gap:1rem}
+@media(min-width:768px){.quotes{grid-template-columns:repeat(2,1fr)}}
+blockquote{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem}
+blockquote p{font-size:1rem;margin:0 0 1rem}
+blockquote cite{font-style:normal;font-size:.9rem;color:var(--muted);display:block}
+blockquote cite strong{color:var(--ink);font-weight:600;display:block}
+
+/* Contact */
+.contact{display:grid;gap:1.5rem}
+@media(min-width:768px){.contact{grid-template-columns:1fr 1fr;gap:3rem}}
+.contact dl{margin:0;display:grid;gap:.75rem}
+.contact dt{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.contact dd{margin:0;font-size:1rem}
+.form{display:grid;gap:.75rem}
+.form label{font-size:.85rem;color:var(--muted);display:block;margin-bottom:.25rem}
+.form input,.form textarea{width:100%;padding:.65rem .75rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);font:inherit}
+.form input:focus,.form textarea:focus{border-color:var(--accent);outline:2px solid var(--accent);outline-offset:1px}
+.form textarea{min-height:5.5rem;resize:vertical}
+
+/* FAQ */
+details{margin:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+details+details{margin-top:.5rem}
+details summary{padding:1rem 1.25rem;cursor:pointer;font-size:1rem}
+details summary:hover{color:var(--accent)}
+details[open] summary{border-bottom:1px solid var(--line)}
+details p{padding:1rem 1.25rem;margin:0;color:var(--muted)}
+
+/* Footer */
+.site-footer{padding:2rem 0;color:var(--muted);font-size:.9rem}
+.site-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html#top" class="brand">Digital<span>Ethnicity</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#testimonials">Clients</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <p class="eyebrow">AI tools and websites</p>
+      <h1 id="hero-h">Practical AI training, websites, and AI agent setup.</h1>
+      <p class="lede">Learn the AI tools, ship the website, or deploy your own AI agent. Fixed scope, fixed price, no upsell.</p>
+      <a class="btn" href="index.html#contact">Book Your AI Kickstart</a>
+      <a class="btn-secondary" href="index.html#services">See services and pricing</a>
+    </div>
+  </section>
+
+  <section id="services" class="block" aria-labelledby="services-h">
+    <div class="wrap">
+      <header>
+        <h2 id="services-h">Services and pricing</h2>
+        <p>Fixed scope. Fixed price. You know what you are buying before I start.</p>
+      </header>
+      <div class="grid services">
+
+        <article class="card" aria-labelledby="s1">
+          <div class="price">$150</div>
+          <div class="time">60 min</div>
+          <h3 id="s1">AI Kickstart</h3>
+          <p class="desc">A focused 60-minute introduction. Pick your tool (Claude, ChatGPT, or Perplexity), learn the prompting framework, and finish the session with a real task completed.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s2">
+          <div class="price">$250</div>
+          <div class="time">90 min</div>
+          <h3 id="s2">AI Deep Dive</h3>
+          <p class="desc">A 90-minute intensive. We build three custom prompts tailored to your specific workflows and create a personal AI playbook you can use every day.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s3">
+          <div class="price">$300&ndash;$500</div>
+          <div class="time">1 week</div>
+          <h3 id="s3">Single-Page Starter Website</h3>
+          <p class="desc">A clean, fast, professional one-page site: Bio, Services, and Contact, built in one week. The same quality delivered for existing clients.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s4">
+          <div class="price">$1,500&ndash;$2,500</div>
+          <div class="time">2&ndash;3 weeks</div>
+          <h3 id="s4">Professional Portfolio Website</h3>
+          <p class="desc">Up to 5 pages, fully responsive with light and dark mode, basic SEO, contact form, and 1 hour of handover training so you own it completely.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s5">
+          <div class="price">$200</div>
+          <div class="time">One-time</div>
+          <h3 id="s5">Hermes Agent Setup</h3>
+          <p class="desc">Get your own AI agent deployed and ready to use, connected to Telegram, Discord, Slack, or WhatsApp, with your AI provider configured and a full walkthrough included.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s6">
+          <div class="price">$5,000&ndash;$7,500</div>
+          <div class="time">30 days</div>
+          <h3 id="s6">AI Career Sprint</h3>
+          <p class="desc">30-day productized engagement for HR/IT leaders at mid-size organizations. AI career ladder design, automation audit, and team capability build. Email for details.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s7">
+          <div class="price">$750&ndash;$2,000/mo</div>
+          <div class="time">Ongoing</div>
+          <h3 id="s7">Monthly Operations</h3>
+          <p class="desc">Retainer-based AI operations for your business. Email automation, lead generation, ad waste recovery, SEO monitoring, or finance ops &mdash; we set it up and keep it running. Scope defined upfront, month-to-month, no long contracts.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="block" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <p class="label">About</p>
+          <h2 id="about-h" style="margin-top:.5rem">Bennie Williams</h2>
+        </div>
+        <div>
+          <p>30-plus years in IT. Navy vet. Currently run the data center at Children's National Hospital, so I work on systems that cannot go down.</p>
+          <p>Digital Ethnicity is the LLC I started to put that discipline to work for small businesses and individuals: practical AI training, real websites, and AI agents wired into the messaging apps you already use.</p>
+          <p>You get me. Not a junior consultant, not a slide deck. Fixed scope, fixed price, and most engagements run a single session to a few weeks.</p>
+          <p>Based in Hagerstown, MD. Available for remote work and short on-site visits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="block" aria-labelledby="testimonials-h">
+    <div class="wrap">
+      <header>
+        <h2 id="testimonials-h">Clients</h2>
+        <p>Two short notes from people I have worked with.</p>
+      </header>
+      <div class="grid quotes">
+        <blockquote>
+          <p>Bennie set up an AI system that automatically processes customer inquiries and schedules appointments. I got 15 hours back every week and my customers are happier. Best investment I've made.</p>
+          <cite><strong>Sarah M.</strong>Small Business Owner</cite>
+        </blockquote>
+        <blockquote>
+          <p>I was completely lost with AI. Bennie explained everything in plain English and showed me exactly how to use ChatGPT and other tools for my real estate business. Now I create marketing content in minutes instead of hours.</p>
+          <cite><strong>David R.</strong>Real Estate Agent</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="block" aria-labelledby="faq-h">
+    <div class="wrap">
+      <header>
+        <h2 id="faq-h">Frequently asked questions</h2>
+      </header>
+      <details>
+        <summary><strong>Do I need to be tech-savvy?</strong></summary>
+        <p>No. If you can send an email, you can use AI. We start from zero and build from there.</p>
+      </details>
+      <details>
+        <summary><strong>What if AI gives me wrong answers?</strong></summary>
+        <p>We teach you how to review and edit output. AI drafts, you decide. That&rsquo;s the workflow.</p>
+      </details>
+      <details>
+        <summary><strong>How long until I see results?</strong></summary>
+        <p>Most clients save time in their first session. Real workflow changes take one to two weeks of daily use.</p>
+      </details>
+      <details>
+        <summary><strong>Do you offer refunds?</strong></summary>
+        <p>If the session doesn&rsquo;t deliver value, you don&rsquo;t pay. Simple.</p>
+      </details>
+      <details>
+        <summary><strong>Can you work with my existing tools?</strong></summary>
+        <p>Yes. We work with what you already use &mdash; Google Workspace, Microsoft 365, whatever is in your workflow.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact" class="block" aria-labelledby="contact-h">
+    <div class="wrap">
+      <header>
+        <h2 id="contact-h">Contact</h2>
+        <p>Email is the fastest way to reach me. I answer within one business day.</p>
+      </header>
+      <div class="contact">
+        <div>
+          <dl>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:mail@digital-ethnicity.com">mail@digital-ethnicity.com</a></dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Hagerstown, MD. Remote-first.</dd>
+            </div>
+            <div>
+              <dt>Availability</dt>
+              <dd>Booking new engagements 2 to 3 weeks out.</dd>
+            </div>
+          </dl>
+        </div>
+        <form class="form" action="mailto:mail@digital-ethnicity.com" method="post" enctype="text/plain" aria-label="Contact form">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div>
+            <label for="msg">What are you trying to figure out?</label>
+            <textarea id="msg" name="message" required></textarea>
+          </div>
+          <div>
+            <button class="btn" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Digital Ethnicity LLC</span>
+    <span>Hagerstown, MD</span>
+  </div>
+</footer>
+</body>
+</html>
